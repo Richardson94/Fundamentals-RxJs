@@ -1,25 +1,25 @@
-import { Observable, Observer } from 'rxjs';
+// import { Observable, Observer } from 'rxjs';
 
-const observer: Observer<any> = {
-  next: (value) => console.log('the value is :', value),
-  error: (error) => console.warn('error :', error),
-  complete: () => console.info('completed!'),
-};
+// const observer: Observer<any> = {
+//   next: (value) => console.log('the value is :', value),
+//   error: (error) => console.warn('error :', error),
+//   complete: () => console.info('completed!'),
+// };
 
-//const obs$ = Observable.create();
-const obs$ = new Observable<string>((subs) => {
-  subs.next('Hola');
-  subs.next('Mundo!');
+// //const obs$ = Observable.create();
+// const obs$ = new Observable<string>((subs) => {
+//   subs.next('Hola');
+//   subs.next('Mundo!');
 
-  //forzando un error
-  //const a = undefined;
-  //a.nombre = 'fernando';
+//   //forzando un error
+//   //const a = undefined;
+//   //a.nombre = 'fernando';
 
-  subs.complete();
-});
-
-// obs$.subscribe((resp) => {
-//   console.log(resp);
+//   subs.complete();
 // });
 
-obs$.subscribe(observer);
+// // obs$.subscribe((resp) => {
+// //   console.log(resp);
+// // });
+
+// obs$.subscribe(observer);

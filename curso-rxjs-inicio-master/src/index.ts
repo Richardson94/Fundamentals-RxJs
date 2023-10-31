@@ -1,22 +1,12 @@
-import { Observable, Observer } from 'rxjs';
+import { Observable} from 'rxjs';
 
-const observer: Observer<any> = {
-  next: (value) => console.log('next: ', value),
-  error: (error) => console.warn('error: ', error),
-  complete: () => console.info('completed!'),
-};
-
-const intervalo$ = new Observable<number>((subs) => {
-  let count = 0;
-
-  setInterval(() => {
-    count++;
-    subs.next(count);
-  }, 100);
+//const obs$ = Observable.create();
+const obs$ = new Observable(subs => {
+subs.next('hola');
+subs.next('mundo');
+subs.next('hola');
+subs.next('mundo');
+subs.complete();
 });
 
-const subs = intervalo$.subscribe((num) => console.log(' Num:', num));
-
-setTimeout(() => {
-  subs.unsubscribe();
-}, 3000);
+obs$.subscribe(resp => console.log(resp));
